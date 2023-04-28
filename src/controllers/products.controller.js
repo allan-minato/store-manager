@@ -18,14 +18,21 @@ const getProductsById = async (req, res) => {
 
 const createProducts = async (req, res) => {
   const { name } = req.body;
-  console.log('BODY CRONTROLLER:', name);
 
   const data = await productsServices.createProducts(name);
   return res.status(201).json(data);
+};
+
+const deleteProducts = async (req, res) => {
+  const { productId } = req.params;
+
+  await productsServices.deleteProducts(productId);
+  return res.status(204).json();
 };
 
 module.exports = {
   getProducts,
   getProductsById,
   createProducts,
+  deleteProducts,
 };

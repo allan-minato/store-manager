@@ -15,12 +15,17 @@ const getProductsById = async (id) => {
 
 const createProducts = async (name) => {
   const data = await productsModel.createProducts(name);
-  console.log('DATA SERVICES:', data);
   return data;
+};
+
+const deleteProducts = async (productId) => {
+  const deleteProduct = await productsModel.deleteProducts(productId);
+  return deleteProduct;
 };
 
 module.exports = {
   getProducts,
   getProductsById,
   createProducts,
+  deleteProducts,
 };

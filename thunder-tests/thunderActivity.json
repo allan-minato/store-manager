@@ -4,18 +4,13 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/products",
-    "url": "http://localhost:3001/products/",
-    "method": "POST",
+    "url": "http://localhost:3001/products/1",
+    "method": "GET",
     "sortNum": 0,
     "created": "2023-04-26T19:43:19.663Z",
-    "modified": "2023-04-28T18:29:35.330Z",
+    "modified": "2023-04-28T19:59:23.305Z",
     "headers": [],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "  {\n    \"name\": \"Luva do Thanos\"\n  }\n",
-      "form": []
-    },
     "tests": []
   }
 ]

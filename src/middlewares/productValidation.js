@@ -1,5 +1,5 @@
 const productValidator = async (req, res, next) => {
-  const name = req.body;
+  const { name } = req.body;
   if (!name) return res.status(400).json({ message: '"name" is required' });
   
   if (name.length < 5) {
