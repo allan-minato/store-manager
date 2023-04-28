@@ -6,24 +6,31 @@ const connection = require('../../../src/models/connection');
 const { productsMock, productsByIdMock } = require('./mock/products.mock');
 
 describe('Products Model tests', () => {
+  
   afterEach(() => sinon.restore());
+ 
   describe('Sucess case', () => {
+   
     it('Get all the products', async () => {
-      sinon.stub(connection, 'execute').resolves(productsMock);
+      sinon.stub(connection, 'execute').resolves([ productsMock ]);
     
       const result = await productsMoldel.getProducts();
-      expect(result).to.be.an('array');
-      expect(result).to.have.length(3)
+      expect(result).to.be.an("array");
+      expect(result).to.have.length(2);
     })
+    
     it("Get products by id", async () => {
-      sinon.stub(connection, "execute").resolves(productsByIdMock);
+      sinon.stub(connection, "execute").resolves([productsByIdMock]);
 
       const result = await productsMoldel.getProductsById();
-      expect(result).to.be.an("array");
-      expect(result).to.have.length(1);
-    });    
+      expect(result).to.be.an("object");
+      expect(result).to.contain.keys(["id", "name"]);
+    }); 
+    
   })
-  describe('Sucess case', () => { 
+  
+  describe('Fail case', () => { 
+   
     it("get products without Data", async () => {
       sinon.stub(connection, "execute").resolves([[]]);
 
@@ -31,13 +38,15 @@ describe('Products Model tests', () => {
       expect(result).to.be.an("array");
       expect(result).to.have.length(0);
     });
+    
     it("get products by id without Data", async () => {
       sinon.stub(connection, "execute").resolves([[]]);
 
       const result = await productsMoldel.getProductsById();
-      expect(result).to.be.an("array");
-      expect(result).to.have.length(0);
+      expect(result).to.be.equal(undefined);
     });
+
   })
+
 })
 
