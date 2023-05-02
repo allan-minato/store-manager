@@ -2,7 +2,6 @@ const salesModel = require('../models/sales.model');
 
 const getSales = async () => {
   const sales = await salesModel.getSales();
-  console.log('SALES SERVICES !!!!!!', sales);
   
   const salesInfo = sales.map((infos) => ({
     saleId: infos.sale_id,
@@ -10,6 +9,7 @@ const getSales = async () => {
     productId: infos.product_id,
     quantity: infos.quantity,
   }));
+
   return salesInfo;
 };
 

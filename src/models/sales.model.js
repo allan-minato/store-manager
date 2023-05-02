@@ -7,7 +7,6 @@ const getSales = async () => {
     INNER JOIN StoreManager.sales_products AS SP
     ON S.id = SP.sale_id;`,
   );
-  console.log('SALES MODEL !!!!!!', sales);
   return sales;
 };
 

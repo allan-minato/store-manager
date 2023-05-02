@@ -11,11 +11,8 @@ const getSalesById = async (req, res) => {
   const sales = await salesServices.getSalesById(id);
  
   if (sales.length === 0) {
-    console.log('AAAAAAAAAAAAAAAAAAAA', id);
-    console.log('ENTROU NO 400 SALES', sales);
     return res.status(404).json({ message: 'Sale not found' });
   }
-  console.log('ENTROU NO 200', sales);
   return res.status(200).json(sales);
 };
 
