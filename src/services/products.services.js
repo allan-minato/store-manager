@@ -18,14 +18,8 @@ const createProducts = async (name) => {
   return data;
 };
 
-const deleteProducts = async (productId) => {
-  const deleteProduct = await productsModel.deleteProducts(productId);
-  return deleteProduct;
-};
-
 module.exports = {
   getProducts,
   getProductsById,
   createProducts,
-  deleteProducts,
 };
