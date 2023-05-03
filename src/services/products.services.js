@@ -18,8 +18,17 @@ const createProducts = async (name) => {
   return data;
 };
 
+const deleteProducts = async (id) => {
+  const result = await productsModel.deleteProducts(id);
+  if (result[0].affectedRows === 0) {
+    return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
+  }
+  return { type: null };
+};
+
 module.exports = {
   getProducts,
   getProductsById,
   createProducts,
+  deleteProducts,
 };
